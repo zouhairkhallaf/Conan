@@ -1,0 +1,8 @@
+# IDE folders
+.idea
+# Version control folder
+.git
+# Dependency directory
+node_modules
+# Optional npm cache directory
+.npm

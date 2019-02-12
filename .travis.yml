@@ -1,0 +1,22 @@
+sudo: false
+language: node_js
+env:
+  - CXX=g++-4.8
+node_js:
+- '6'
+after_success: npm run codeclimate
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - build-essential 
+      - g++-4.8
+deploy:
+  provider: npm
+  email: hrithikp@me.com
+  api_key:
+    secure: 2yIikq7m5aAEDUrPdEeDKtAyYesiF0bSPSGvbqSq4Qkoa0mxHY33eQ5XmKkasNOiCRQkSnmMyoCyadC+Cx0uClpETm3dW1kr49wTZeUWYX8KlDnsHPq1fRRTiu2S/qi/TMwrEw13dXGteBE0AcLa+ejy/bSvZUHnXF47m42ZD6G1Ihg/6mITIhVXYlFLGupTb6La0VkACRx7NrJzJvpGrHlxgkRGtd9p1ZThcWBvZb+rAKvWIOl8Nqty47HALMVOOEG5sm5EaHzoWoouEdEYxzoXxx8oQ3RetQVyHxjZ166d0tAptE3hUutNkdgDavyWxn+jobLJsndl2pq1H431+gpGdaFAlNtLGgOgB8G8a/PebkmZmL3exWzD6dxHQUjPYQ1pw/P0aSo2nrVYLB4G3lorvqJiVUyZHmF9yhrIesYg8j4uAgLuATG2E000G4COZi+9wqvV0cxAzjPIQhux/J7QvbQd2oXSsLbNcCbBPRhC6xXqM8Jcq+hFlEVm5W3SqddfbQXPOKQz44lt/djOCKdvYks/FLJsZfCYE40QRr2wMhbQ46q6Fd8+xPGMrLCjo4Cn9puo/ZikgA1kZi4pl8C9HUUsMKsOsaK8wkhbClEPzktniUFOioUJvIgKmC84iM/vEcCjR3mBusUsmIjd3x+nxCphJ+5xDLmzjh4bs50=
+  on:
+    tags: true
+    repo: hellobond/bond-black-wrapper
