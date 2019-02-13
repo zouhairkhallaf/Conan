@@ -23,9 +23,9 @@
     <div class="container">
       <div class="row">
         <div class="col-sm">
-          <label>Message Id</label>
-          <input type="text" class="messageId" />
-          <button id="search-button" onclick="lookup()">Search</button>
+          <label>Search By MESSAGE Id</label>
+          <input type="text" class="messageId" onfocus="hideResutlsTable();this.value=''" value="Message Id here ..."/>
+          <button id="search-button" onclick="lookupByMessage()" >Search</button>
         </div>
         <div class="col-sm">
           <div>Message Status:<br/><span class="push-left message-status"></span></div>
@@ -34,396 +34,290 @@
           <div>Message boGUID:<br/><span class="push-left message-boGUID"></span></div>
         </div>
       </div>
+      <div class="row">
+          <div class="col-sm">
+            <label>Search By ORDER Id</label>
+            <input type="text" class="orderId" onfocus="hideResutlsTable();this.value=''" value="order Id here ..."/>
+            <button id="search-button" onclick="lookupByOrder()">Search</button>
+          </div>
+          <div class="col-sm">
+            <div>Order Status:<br/><span class="push-left message-status"></span></div>
+          </div>
+          <div class="col-sm">
+            <div>Order:<br/><span class="push-left message-boGUID"></span></div>
+          </div>
+        </div>
     </div>
 
     <div class="results">
       <div id="accordion">
-          <div class="card">
-              <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                  <button
-                    class="btn btn-link collapsed"
-                    data-toggle="collapse"
-                    data-target="#collapse-0"
-                    aria-expanded="false"
-                    aria-controls="collapse-0"
-                  >
-                    ORDER
-                  </button>
-                </h5>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-0" aria-expanded="false" aria-controls="collapse-0" >
+                ORDER
+              </button>
+            </h5>
+          </div>
+          <div id="collapse-0" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-0-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
               </div>
-              <div
-                id="collapse-0"
-                class="collapse"
-                aria-labelledby="headingTwo"
-                data-parent="#accordion"
-              >
-                <pre>
-                <code><span class="collapse-0-card-body">Product Data Here ...</span></code>  
-               </pre>
-              </div>
-            </div>
-
+          </div>
+        </div>
         <div class="card">
           <div class="card-header" id="headingOne">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-1"
-                aria-expanded="true"
-                aria-controls="collapse-1"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1" >
                 DRAFT
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-1"
-            class="collapse"
-            aria-labelledby="headingOne"
-            data-parent="#accordion"
-          >
-            <pre>
-        <code><span class="collapse-1-card-body">Draft Data Here ...</span></code>  
-      </pre>
+          <div id="collapse-1" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" >
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-1-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-2"
-                aria-expanded="false"
-                aria-controls="collapse-2"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2" >
                 PRODUCT
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-2"
-            class="collapse"
-            aria-labelledby="headingTwo"
-            data-parent="#accordion"
-          >
-            <pre>
-            <code><span class="collapse-2-card-body">Product Data Here ...</span></code>  
-           </pre>
+          <div id="collapse-2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion" >
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-2-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-3"
-                aria-expanded="false"
-                aria-controls="collapse-3"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3" >
                 ENVELOPE-RENDER
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-3"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordion"
-          >
-            <div>
-              <pre>
-              <code><span class="collapse-3-card-body">Data Here ...</span></code>  
-             </pre>
-            </div>
+          <div id="collapse-3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" >
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-3-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-4"
-                aria-expanded="false"
-                aria-controls="collapse-4"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4" >
                 MESSAGE-RENDER
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-4"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordion"
-          >
-            <div>
-              <pre>
-                  <code><span class="collapse-4-card-body">Data Here ...</span></code>  
-                 </pre>
-            </div>
+          <div id="collapse-4" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-4-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-5"
-                aria-expanded="false"
-                aria-controls="collapse-5"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
                 ENVELOPE
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-5"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordion"
-          >
-            <div>
-              <pre>
-                      <code><span class="collapse-5-card-body">Data Here ...</span></code>  
-                     </pre>
-            </div>
+          <div id="collapse-5" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-5-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-6"
-                aria-expanded="false"
-                aria-controls="collapse-6"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
                 SEAL
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-6"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordion"
-          >
-            <div>
-              <pre>
-                      <code><span class="collapse-6-card-body">Data Here ...</span></code>  
-                     </pre>
-            </div>
+          <div id="collapse-6" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-6-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-7"
-                aria-expanded="false"
-                aria-controls="collapse-7"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-7" aria-expanded="false" aria-controls="collapse-7" >
                 STAMP
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-7"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordion"
-          >
-            <div>
-              <pre>
-                      <code><span class="collapse-7-card-body">Data Here ...</span></code>  
-                     </pre>
-            </div>
+          <div id="collapse-7" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" >
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-7-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-8"
-                aria-expanded="false"
-                aria-controls="collapse-8"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-8" aria-expanded="false" aria-controls="collapse-8" >
                 DESIGN
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-8"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordion"
-          >
-            <div>
-              <pre>
-                      <code><span class="collapse-8-card-body">Data Here ...</span></code>  
-                     </pre>
-            </div>
+          <div id="collapse-8" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" >
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-8-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-9"
-                aria-expanded="false"
-                aria-controls="collapse-9"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-9" aria-expanded="false" aria-controls="collapse-9" >
                 PAPER
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-9"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordion"
-          >
-            <div>
-              <pre>
-                      <code><span class="collapse-9-card-body">Data Here ...</span></code>  
-                     </pre>
-            </div>
+          <div id="collapse-9" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" >
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-9-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-10"
-                aria-expanded="false"
-                aria-controls="collapse-10"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-10" aria-expanded="false" aria-controls="collapse-10" >
                 DESIGN-RENDER
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-10"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordion"
-          >
-            <div>
-              <pre>
-                      <code><span class="collapse-10-card-body">Data Here ...</span></code>  
-                     </pre>
-            </div>
+          <div id="collapse-10" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" >
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-10-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
 
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-11"
-                aria-expanded="false"
-                aria-controls="collapse-11"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-11" aria-expanded="false" aria-controls="collapse-11" >
                 TAG
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-11"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordion"
-          >
-            <div>
-              <pre>
-                      <code><span class="collapse-11-card-body">Data Here ...</span></code>  
-                     </pre>
-            </div>
+          <div id="collapse-11" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" >
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-11-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-12"
-                aria-expanded="false"
-                aria-controls="collapse-12"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-12" aria-expanded="false" aria-controls="collapse-12" >
                 STATIONERY
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-12"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordion"
-          >
-            <div>
-              <pre>
-                      <code><span class="collapse-12-card-body">Data Here ...</span></code>  
-                     </pre>
-            </div>
+          <div id="collapse-12" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" >
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-12-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link collapsed"
-                data-toggle="collapse"
-                data-target="#collapse-13"
-                aria-expanded="false"
-                aria-controls="collapse-13"
-              >
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-13" aria-expanded="false" aria-controls="collapse-13" >
                 SENDER-ADDRESS
               </button>
             </h5>
           </div>
-          <div
-            id="collapse-13"
-            class="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordion"
-          >
-            <div>
-              <pre>
-                      <code><span class="collapse-13-card-body">Data Here ...</span></code>  
-                     </pre>
-            </div>
+          <div id="collapse-13" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" >
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-13-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
@@ -433,12 +327,16 @@
             </h5>
           </div>
           <div id="collapse-14" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" >
-            <div>
-              <pre><code><span class="collapse-14-card-body">Data Here ...</span></code></pre>
-            </div>
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-14-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
@@ -448,14 +346,16 @@
             </h5>
           </div>
           <div id="collapse-15" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div>
-              <pre>
-                      <code><span class="collapse-15-card-body">Data Here ...</span></code>  
-              </pre>
-            </div>
+              <div class="row">
+                  <div class="col-6">
+                      <pre>
+                          <code><span class="collapse-15-card-body">No Available Data ...</span></code>
+                      </pre>
+                  </div>
+                  <div class="col-6">.col-6</div>
+              </div>
           </div>
         </div>
-
         <div class="card">
             <div class="card-header" id="headingThree">
               <h5 class="mb-0">
@@ -465,14 +365,16 @@
               </h5>
             </div>
             <div id="collapse-16" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-              <div>
-                <pre>
-                        <code><span class="collapse-16-card-body">Data Here ...</span></code>  
-                </pre>
-              </div>
+                <div class="row">
+                    <div class="col-6">
+                        <pre>
+                            <code><span class="collapse-16-card-body">No Available Data ...</span></code>
+                        </pre>
+                    </div>
+                    <div class="col-6">.col-6</div>
+                </div>
             </div>
           </div>
-
           <div class="card">
               <div class="card-header" id="headingThree">
                 <h5 class="mb-0">
@@ -482,25 +384,55 @@
                 </h5>
               </div>
               <div id="collapse-17" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                <div>
-                  <pre>
-                          <code><span class="collapse-17-card-body">Data Here ...</span></code>  
-                  </pre>
-                </div>
+                  <div class="row">
+                      <div class="col-6">
+                          <pre>
+                              <code><span class="collapse-17-card-body">No Available Data ...</span></code>
+                          </pre>
+                      </div>
+                      <div class="col-6">.col-6</div>
+                  </div>
               </div>
             </div>
-
-
-
-
-
-
       </div>
-
-
-
-
-
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-18" aria-expanded="false" aria-controls="collapse-18" >
+              HPS-IMPORTS
+            </button>
+          </h5>
+        </div>
+        <div id="collapse-18" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="row">
+                <div class="col-6">
+                    <pre>
+                        <code><span class="collapse-18-card-body">No Available Data ...</span></code>
+                    </pre>
+                </div>
+                <div class="col-6">.col-6</div>
+            </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-19" aria-expanded="false" aria-controls="collapse-19" >
+              CPS-IMPORTS
+            </button>
+          </h5>
+        </div>
+        <div id="collapse-19" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="row">
+                <div class="col-6">
+                    <pre>
+                        <code><span class="collapse-19-card-body">No Available Data ...</span></code>
+                    </pre>
+                </div>
+                <div class="col-6">.col-6</div>
+            </div>
+        </div>
+      </div>
     </div>
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>

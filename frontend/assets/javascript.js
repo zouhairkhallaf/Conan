@@ -1,8 +1,6 @@
-
-
-function lookup(){
+function lookupByMessage(){
+    $(".results").css({"display":"block"})
     var messageId = $(".messageId").val()
-    console.log("messageId: ", messageId) 
       $.getJSON( `http://Zouhairs-MacBook-Pro-3.local:8000/spectre/${messageId}`, function( data ) {
         $(".message-status").html(        JSON.stringify(data[0].status,                  null, 5) )
         $(".message-boGUID").html(        JSON.stringify(data[0].boGUID,                  null, 5) )
@@ -22,14 +20,22 @@ function lookup(){
         $(".collapse-13-card-body").html( JSON.stringify(data[0]["SENDER-ADDRESS"][0],    null, 5) )
         $(".collapse-14-card-body").html( JSON.stringify(data[0]["RECIPIENT-ADDRESS"][0], null, 5) )
         $(".collapse-15-card-body").html( JSON.stringify(data[0]["HANDWRITING-STYLE"][0], null, 5) )
+        $(".collapse-18-card-body").html( JSON.stringify(data[0]["HPS-IMPORTS"][0],       null, 5) )
+        $(".collapse-19-card-body").html( JSON.stringify(data[0]["CPS-IMPORTS"][0],       null, 5) )
       });
       $.getJSON( `http://Zouhairs-MacBook-Pro-3.local:8000/penstation/${messageId}`, function( data ) {
-        var MESSAGE = [];
-        MESSAGE.push(data)
-        var BATCH = MESSAGE[0].BATCH
-        delete MESSAGE[0].BATCH;
-        console.log(BATCH)
-        $(".collapse-16-card-body").html(JSON.stringify(MESSAGE[0],                     null, 5) )
+        var PSMESSAGE = data;
+        var BATCH = PSMESSAGE[0].BATCH
+        delete PSMESSAGE[0].BATCH;
+        $(".collapse-16-card-body").html(JSON.stringify(PSMESSAGE[0],                      null, 5) )
         $(".collapse-17-card-body").html(JSON.stringify(BATCH[0],                          null, 5) )
       });
+}
+
+function lookupByOrder(){
+  return "HI there ///"
+}
+
+function hideResutlsTable(){
+  $(".results").css({"display":"none"})
 }
